@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{672F3935-F517-4692-BFF6-688BCF2EE8BC}</ProjectGuid>
+    <ProjectGuid>{7440DFB6-A0DE-4551-AB9B-BD26F0044DFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileScanner.Interfaces</RootNamespace>
-    <AssemblyName>FileScanner.Interfaces</AssemblyName>
+    <RootNamespace>FileScanner.Testing</RootNamespace>
+    <AssemblyName>FileScanner.Testing</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\IMD5Calculator.cs" />
-    <Compile Include="IO\IFileLoader.cs" />
-    <Compile Include="Objects\IFileDetailCollection.cs" />
-    <Compile Include="Objects\IFileDetails.cs" />
-    <Compile Include="Objects\IPathProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

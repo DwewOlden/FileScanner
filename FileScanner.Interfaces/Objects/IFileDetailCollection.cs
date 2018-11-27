@@ -8,7 +8,9 @@ namespace FileScanner.Interfaces.Objects
 {
     public interface IFileDetailCollection
     {
-        bool FileHasBeenScanned { get; set; }
+        bool FileHasBeenScanned(string Filename);
+
+
 
 
     }

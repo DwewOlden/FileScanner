@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScanner.Interfaces", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScanner.Objects", "FileScanner.Objects\FileScanner.Objects.csproj", "{C99902EA-B3D4-4CFA-AB7F-DEC55F64B465}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScanner.Testing", "FileScanner.Testing\FileScanner.Testing.csproj", "{7440DFB6-A0DE-4551-AB9B-BD26F0044DFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScanner.IO", "FileScanner.IO\FileScanner.IO.csproj", "{970D99CB-5B0E-4C05-8E84-B284ABF0D749}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{C99902EA-B3D4-4CFA-AB7F-DEC55F64B465}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C99902EA-B3D4-4CFA-AB7F-DEC55F64B465}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C99902EA-B3D4-4CFA-AB7F-DEC55F64B465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7440DFB6-A0DE-4551-AB9B-BD26F0044DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7440DFB6-A0DE-4551-AB9B-BD26F0044DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7440DFB6-A0DE-4551-AB9B-BD26F0044DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7440DFB6-A0DE-4551-AB9B-BD26F0044DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{970D99CB-5B0E-4C05-8E84-B284ABF0D749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{970D99CB-5B0E-4C05-8E84-B284ABF0D749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{970D99CB-5B0E-4C05-8E84-B284ABF0D749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{970D99CB-5B0E-4C05-8E84-B284ABF0D749}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

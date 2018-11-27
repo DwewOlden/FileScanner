@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace FileScanner.Interfaces.Objects
 {
-    /// <summary>
-    /// The path and hash of a file
-    /// </summary>
-    public interface IFileDetails
+    public interface IPathProperties
     {
-        string Path { get; set; }
+        string ListOfDirectoriesToBeScanned { get; set; }
 
-        string Hash { get; set; }
-
+        string PathToHashCollection { get; set; }
     }
 }
