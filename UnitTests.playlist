@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="FileScanner.Testing.IO_Tests.FileDetailsTests.FileEqualsTest" /><Add Test="FileScanner.Testing.IO_Tests.FileDetailsTests.FileToStringTest" /></Playlist>

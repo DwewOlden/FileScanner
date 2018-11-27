@@ -13,6 +13,7 @@ namespace FileScanner.Testing.IO_Tests
     public class FileDetailsTests
     {
         [Test]
+        [Category("UnitTest")]
         public void FileEqualsTest()
         {
             var d = GetOutline();
@@ -22,6 +23,7 @@ namespace FileScanner.Testing.IO_Tests
         }
 
         [Test]
+        [Category("UnitTest")]
         public void FileToStringTest()
         {
             var o = GetOutline().ToString();

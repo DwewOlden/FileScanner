@@ -48,6 +48,10 @@
       <Project>{672f3935-f517-4692-bff6-688bcf2ee8bc}</Project>
       <Name>FileScanner.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FileScanner.Objects\FileScanner.Objects.csproj">
+      <Project>{C99902EA-B3D4-4CFA-AB7F-DEC55F64B465}</Project>
+      <Name>FileScanner.Objects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
