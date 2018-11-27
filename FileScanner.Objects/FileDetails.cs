@@ -23,7 +23,7 @@ namespace FileScanner.Objects
 
         public override int GetHashCode()
         {
-            return Hash.GetHashCode();
+            return Hash.Length;
         }
 
         public override bool Equals(object obj)
@@ -35,7 +35,7 @@ namespace FileScanner.Objects
                 return false;
 
             IFileDetails d = (IFileDetails)obj;
-            if (d.Hash == this.Hash && d.Path == this.Hash)
+            if (d.Hash == this.Hash && d.Path == this.Path)
                 return true;
             else
                 return false;
