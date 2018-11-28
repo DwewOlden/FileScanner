@@ -83,6 +83,7 @@ namespace FileScanner.IO
                 return null;
 
             string[] parts = line.Split(new string[] { "##!##" }, StringSplitOptions.None);
+
             if (parts.Length == 2)
                 return new FileDetails() { Hash = parts[1], Path = parts[0] };
             else

@@ -61,9 +61,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IO Tests\FileDetailsTests.cs" />
+    <Compile Include="IO Tests\MD5CalculationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FileScanner.Algorithms\FileScanner.Algorithms.csproj">
+      <Project>{32954A86-7809-42B2-89B9-A6B9C9B52204}</Project>
+      <Name>FileScanner.Algorithms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileScanner.Interfaces\FileScanner.Interfaces.csproj">
       <Project>{672f3935-f517-4692-bff6-688bcf2ee8bc}</Project>
       <Name>FileScanner.Interfaces</Name>
@@ -79,6 +84,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\TestFile1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\TestFile2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\TestFile3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
