@@ -19,5 +19,19 @@ namespace FileScanner.Objects
             return this.Any(f => f.Path.ToUpper() == Filename.ToUpper());
         }
 
+        /// <summary>
+        /// Returns a count of the files
+        /// </summary>
+        /// <returns>The number of file elements being scanned.</returns>
+        public int FileCount
+        {
+            get
+            {
+                return this.Count;
+            }
+        }
+
+
+
     }
 }

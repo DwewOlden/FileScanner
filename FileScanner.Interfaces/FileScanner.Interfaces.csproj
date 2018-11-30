@@ -45,6 +45,7 @@
     <Compile Include="Objects\IFileDetailCollection.cs" />
     <Compile Include="Objects\IFileDetails.cs" />
     <Compile Include="Objects\IPathProperties.cs" />
+    <Compile Include="Objects\IScanningLocations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

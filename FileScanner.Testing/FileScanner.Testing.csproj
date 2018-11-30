@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="IO Tests\FileDetailsTests.cs" />
     <Compile Include="IO Tests\MD5CalculationTests.cs" />
+    <Compile Include="IO Tests\ScanningLocationsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

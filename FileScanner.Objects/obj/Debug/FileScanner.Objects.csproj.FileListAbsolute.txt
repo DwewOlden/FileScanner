@@ -1,0 +1,9 @@
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Objects\bin\Debug\FileScanner.Objects.dll
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Objects\bin\Debug\FileScanner.Objects.pdb
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Objects\obj\Debug\FileScanner.Objects.csprojAssemblyReference.cache
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Objects\obj\Debug\FileScanner.Objects.csproj.CoreCompileInputs.cache
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Objects\obj\Debug\FileScanner.Objects.dll
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Objects\obj\Debug\FileScanner.Objects.pdb
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Objects\bin\Debug\FileScanner.Interfaces.dll
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Objects\bin\Debug\FileScanner.Interfaces.pdb
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Objects\obj\Debug\FileScanner.Objects.csproj.CopyComplete

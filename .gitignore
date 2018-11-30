@@ -3,3 +3,10 @@
 ################################################################################
 
 /FileScanner.Algorithms/bin/Debug
+/.vs/FileScanner.Solution/DesignTimeBuild
+/.vs/FileScanner.Solution/v15/Server/sqlite3
+*.pdb
+*.dll
+/FileScanner.Interfaces/obj/Debug
+/FileScanner.IO/obj/Debug
+/packages

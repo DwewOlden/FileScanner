@@ -10,8 +10,7 @@ namespace FileScanner.Interfaces.Objects
     {
         bool FileHasBeenScanned(string Filename);
 
-
-
-
+        int FileCount { get; }
+      
     }
 }
