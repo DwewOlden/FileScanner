@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScanner.Algorithms", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScanner.Unity", "FileScanner.Unity\FileScanner.Unity.csproj", "{D405A6C6-649A-4C1E-8CE2-1CD137677344}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{F17561FE-87F1-40C6-A250-A04F325DCEBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScanner.Console", "FileScanner.Console\FileScanner.Console.csproj", "{55BAEF4E-3D1B-4D1A-AB6D-4D9D77121FF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,9 +49,16 @@ Global
 		{D405A6C6-649A-4C1E-8CE2-1CD137677344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D405A6C6-649A-4C1E-8CE2-1CD137677344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D405A6C6-649A-4C1E-8CE2-1CD137677344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55BAEF4E-3D1B-4D1A-AB6D-4D9D77121FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55BAEF4E-3D1B-4D1A-AB6D-4D9D77121FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55BAEF4E-3D1B-4D1A-AB6D-4D9D77121FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55BAEF4E-3D1B-4D1A-AB6D-4D9D77121FF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55BAEF4E-3D1B-4D1A-AB6D-4D9D77121FF5} = {F17561FE-87F1-40C6-A250-A04F325DCEBE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2929216-D561-4A32-ABBC-CF96DA6BD530}

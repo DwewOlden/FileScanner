@@ -74,11 +74,8 @@ namespace FileScanner.Algorithms
             if (PathProperties == null)
                 throw new ArgumentOutOfRangeException("PathProperties", "the path properties object is currently null");
 
-            if (!InitalizeCollections())
-                return false;
-
+            InitalizeCollections();
             
-
             return true;
         }
 
@@ -91,10 +88,10 @@ namespace FileScanner.Algorithms
             if (!scanningLocations_.Populate(PathProperties))
                 throw new ArgumentNullException("PathProperties", "unable to load the contents of the path files");
 
-            if (scanningLocations_.FileDetails.FileCount != 0 && scanningLocations_.Directories.Count() != 0)
-                return true;
-
-            return false;
+            if (scanningLocations_.Directories.Count() == 0)
+                throw new ArgumentOutOfRangeException("Scanning Directories", "the scanning direcories cannot be null");
+               
+            return true;
 
         }
     }
