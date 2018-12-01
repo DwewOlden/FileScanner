@@ -43,6 +43,7 @@
     <Compile Include="Algorithms\IDirectoryScanner.cs" />
     <Compile Include="Algorithms\IMD5Calculator.cs" />
     <Compile Include="IO\IFileLoader.cs" />
+    <Compile Include="Algorithms\IProcessingSystem.cs" />
     <Compile Include="Objects\IFileDetailCollection.cs" />
     <Compile Include="Objects\IFileDetails.cs" />
     <Compile Include="Objects\IPathProperties.cs" />

@@ -23,7 +23,7 @@ namespace FileScanner.Algorithms
             List<string> all = new List<string>();
 
             foreach (string directory in Direcories)
-                all.AddRange(GetFilesInDiretory(directory));
+                all.AddRange(GetFilesInDirectory(directory));
 
             return all.AsEnumerable();
         }
@@ -33,7 +33,7 @@ namespace FileScanner.Algorithms
         /// </summary>
         /// <param name="Directory">The directory containing the files we are intrested in</param>
         /// <returns>The file info selection in the passed directory</returns>
-        public IEnumerable<string> GetFilesInDiretory(string Directory)
+        public IEnumerable<string> GetFilesInDirectory(string Directory)
         {
             DirectoryInfo d = new DirectoryInfo(Directory);
             return d.EnumerateFiles("*.*", SearchOption.AllDirectories).Select(f=>f.FullName).AsEnumerable();

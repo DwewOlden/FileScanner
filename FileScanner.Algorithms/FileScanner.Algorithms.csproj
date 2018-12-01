@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DirectoryScanner.cs" />
     <Compile Include="MD5Calculator.cs" />
+    <Compile Include="ProcessingSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

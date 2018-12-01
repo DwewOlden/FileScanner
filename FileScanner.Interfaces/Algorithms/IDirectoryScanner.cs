@@ -9,7 +9,7 @@ namespace FileScanner.Interfaces.Algorithms
 {
     public interface IDirectoryScanner
     {
-        IEnumerable<string> GetFilesInDiretory(string Directory);
+        IEnumerable<string> GetFilesInDirectory(string Directory);
 
         IEnumerable<string> GetFilesInDirectories(IEnumerable<string> Direcories);
 
