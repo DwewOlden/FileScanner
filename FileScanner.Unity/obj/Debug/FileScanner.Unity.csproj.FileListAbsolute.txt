@@ -22,3 +22,11 @@ C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\obj\Debug\Fil
 C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\obj\Debug\FileScanner.Unity.csproj.CopyComplete
 C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\obj\Debug\FileScanner.Unity.dll
 C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\obj\Debug\FileScanner.Unity.pdb
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\bin\Debug\FileScanner.Algorithms.dll
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\bin\Debug\FileScanner.Interfaces.dll
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\bin\Debug\FileScanner.IO.dll
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\bin\Debug\FileScanner.Objects.dll
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\bin\Debug\FileScanner.Algorithms.pdb
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\bin\Debug\FileScanner.Interfaces.pdb
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\bin\Debug\FileScanner.IO.pdb
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Unity\bin\Debug\FileScanner.Objects.pdb

@@ -7,3 +7,5 @@ C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Algorithms\obj\Debu
 C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Algorithms\obj\Debug\FileScanner.Algorithms.csproj.CopyComplete
 C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Algorithms\obj\Debug\FileScanner.Algorithms.dll
 C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Algorithms\obj\Debug\FileScanner.Algorithms.pdb
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Algorithms\bin\Debug\FileScanner.Objects.dll
+C:\Users\Andre\source\repos\FileScanner.Solution\FileScanner.Algorithms\bin\Debug\FileScanner.Objects.pdb

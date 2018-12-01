@@ -74,5 +74,23 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileScanner.Algorithms\FileScanner.Algorithms.csproj">
+      <Project>{32954A86-7809-42B2-89B9-A6B9C9B52204}</Project>
+      <Name>FileScanner.Algorithms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileScanner.Interfaces\FileScanner.Interfaces.csproj">
+      <Project>{672F3935-F517-4692-BFF6-688BCF2EE8BC}</Project>
+      <Name>FileScanner.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileScanner.IO\FileScanner.IO.csproj">
+      <Project>{970D99CB-5B0E-4C05-8E84-B284ABF0D749}</Project>
+      <Name>FileScanner.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileScanner.Objects\FileScanner.Objects.csproj">
+      <Project>{C99902EA-B3D4-4CFA-AB7F-DEC55F64B465}</Project>
+      <Name>FileScanner.Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
