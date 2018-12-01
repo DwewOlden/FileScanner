@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity;
 
-namespace FileScanner.Unity
+namespace FileScanner.UnitySystem
 {
     /// <summary>
     /// A class that will initalize the unty system.

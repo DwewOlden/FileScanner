@@ -21,9 +21,10 @@ namespace FileScanner.Algorithms
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public ProcessingSystem(IScanningLocations scanningLocations)
+        public ProcessingSystem(IScanningLocations scanningLocations,IDirectoryScanner directoryScanner)
         {
             scanningLocations_ = scanningLocations;
+            directoryScanner_ = directoryScanner;
         }
 
         #endregion
@@ -34,12 +35,14 @@ namespace FileScanner.Algorithms
         /// Loads the data files and collections
         /// </summary>
         private readonly IScanningLocations scanningLocations_;
-
-
+        
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// The details of the file paths.
+        /// </summary>
         public IPathProperties PathProperties { get; set; }
 
         /// <summary>
@@ -53,7 +56,7 @@ namespace FileScanner.Algorithms
         public IFileDetailCollection UpdatedFiles { get; set; }
 
         /// <summary>
-        /// The paths of any files that have been
+        /// The paths of any files that have been removed
         /// </summary>
         public IEnumerable<string> RemovedFiles { get; set; }
 
@@ -61,15 +64,20 @@ namespace FileScanner.Algorithms
 
         #region Processors
 
+        /// <summary>
+        /// An instance of the directectory of the scanner. 
+        /// </summary>
+        private readonly IDirectoryScanner directoryScanner_;
+
        
 
         #endregion
 
         /// <summary>
-        /// Main entry point into the system.
+        /// Reads and validates the data files from the path properties object
         /// </summary>
         /// <returns>True if the process has a successfull run</returns>
-        public bool ProcessFileDetails()
+        public bool GetFileInformation()
         {
             if (PathProperties == null)
                 throw new ArgumentOutOfRangeException("PathProperties", "the path properties object is currently null");
@@ -92,6 +100,25 @@ namespace FileScanner.Algorithms
                 throw new ArgumentOutOfRangeException("Scanning Directories", "the scanning direcories cannot be null");
                
             return true;
+
+        }
+
+        /// <summary>
+        /// Performs the main processing for the system
+        /// </summary>
+        /// <returns>True if the processing was able to complete without any issues false otherwise</returns>
+        public bool ExecuteMainProcessing()
+        {
+
+            IEnumerable<string> fileList = directoryScanner_.GetFilesInDirectories(scanningLocations_.Directories);
+            if (fileList.Count() == 0)
+                return true;
+
+
+
+
+
+            return false;
 
         }
     }

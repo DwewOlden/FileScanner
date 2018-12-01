@@ -30,12 +30,11 @@ namespace FileScanner.IO
             StreamReader reader = new StreamReader(pathProperties.ListOfDirectoriesToBeScanned);
 
             string line = reader.ReadLine();
-            data.Add(line);
-
+            
             while(line !=null)
             {
-                line = reader.ReadLine();
                 data.Add(line);
+                line = reader.ReadLine();
             }
 
             return data; 
@@ -50,10 +49,10 @@ namespace FileScanner.IO
         {
             FileDetailCollection fileDetailCollection = new FileDetailCollection();
 
-            if (!File.Exists(pathProperties.ListOfDirectoriesToBeScanned))
+            if (!File.Exists(pathProperties.PathToHashCollection))
                 return new FileDetailCollection();
             
-            StreamReader reader = new StreamReader(pathProperties.ListOfDirectoriesToBeScanned);
+            StreamReader reader = new StreamReader(pathProperties.PathToHashCollection);
 
             string line = reader.ReadLine();
             IFileDetails fileDetails = GetFileDetails(line);
