@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FileScanner.Interfaces.Objects;
+using FileScanner.Objects;
 using FileScanner.Unity;
 
 namespace FileScanner.Console
@@ -42,7 +43,14 @@ namespace FileScanner.Console
         /// </summary>
         private static void PerformProcessing()
         {
-            throw new NotImplementedException();
+            string directories = Properties.Settings.Default.DirectoryPath;
+            string files = Properties.Settings.Default.FileDetails;
+
+            _PathProperties = new PathProperties()
+            {
+                ListOfDirectoriesToBeScanned = directories,
+                PathToHashCollection = files
+            };
         }
     }
 }
