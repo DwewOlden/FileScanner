@@ -31,7 +31,15 @@ namespace FileScanner.Objects
             }
         }
 
-
-
+        /// <summary>
+        /// Gets the paths of all files in the collection
+        /// </summary>
+        public IEnumerable<string> Files
+        {
+            get
+            {
+                return this.Select(f => f.Path);
+            }
+        }
     }
 }

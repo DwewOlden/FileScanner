@@ -1,4 +1,5 @@
-﻿using FileScanner.Interfaces.Algorithms;
+﻿using FileScanner.Interfaces;
+using FileScanner.Interfaces.Algorithms;
 using FileScanner.Interfaces.IO;
 using FileScanner.Interfaces.Objects;
 using FileScanner.Objects;
@@ -21,10 +22,11 @@ namespace FileScanner.Algorithms
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public ProcessingSystem(IScanningLocations scanningLocations,IDirectoryScanner directoryScanner)
+        public ProcessingSystem(IScanningLocations scanningLocations,IDirectoryScanner directoryScanner,IMD5Calculator mD5Calculator)
         {
             scanningLocations_ = scanningLocations;
             directoryScanner_ = directoryScanner;
+            mD5Calculator_ = mD5Calculator;
         }
 
         #endregion
@@ -68,6 +70,11 @@ namespace FileScanner.Algorithms
         /// An instance of the directectory of the scanner. 
         /// </summary>
         private readonly IDirectoryScanner directoryScanner_;
+
+        /// <summary>
+        /// An instance of the MD5 Hash Calculator.
+        /// </summary>
+        private readonly IMD5Calculator mD5Calculator_;
 
        
 
@@ -114,12 +121,95 @@ namespace FileScanner.Algorithms
             if (fileList.Count() == 0)
                 return true;
 
-
-
-
-
+            CalculateListContents(fileList);
+            
             return false;
 
+        }
+
+        /// <summary>
+        /// Generates lists of file that have been added, amended or deleted.
+        /// </summary>
+        private void CalculateListContents(IEnumerable<string> fileList)
+        {
+            GenerateListOfNewFiles(fileList);
+            GenerateListOfAmendedFiles(fileList);
+            GeneratedListOfDeletedFiles(fileList);
+            
+        }
+
+        /// <summary>
+        /// Checks if any files have been deleted
+        /// </summary>
+        /// <param name="fileList">A list of all files being scanned</param>
+        private void GeneratedListOfDeletedFiles(IEnumerable<string> fileList)
+        {
+            List<string> removedFiles = new List<string>();
+            IEnumerable<string> existingFiles = scanningLocations_.FileDetails.Files;
+
+            
+        }
+
+        /// <summary>
+        /// Checks if any files have been amended
+        /// </summary>
+        /// <param name="fileList">A list of all files being scanned</param>
+        private void GenerateListOfAmendedFiles(IEnumerable<string> fileList)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Checks if any file have been added 
+        /// </summary>
+        /// <param name="fileList">A list of all files being scanned</param>
+        private void GenerateListOfNewFiles(IEnumerable<string> fileList)
+        {
+
+            List<string> newFiles = new List<string>();
+
+            foreach (string currentFile in fileList)
+                if (!scanningLocations_.FileDetails.Files.Contains(currentFile))
+                    newFiles.Add(currentFile);
+
+            AddedFiles = GenerateMD5Checksums(newFiles);
+            
+        }
+
+        /// <summary>
+        /// Generates a collection of checksums for the passed collection of files.
+        /// </summary>
+        /// <param name="newFiles">A collection of files, each of which will require a new MD5 checksum</param>
+        /// <returns>A new collection of MD5</returns>
+        private IFileDetailCollection GenerateMD5Checksums(IEnumerable<string> newFiles)
+        {
+            FileDetailCollection collection = new FileDetailCollection();
+
+            foreach (string file in newFiles)
+                if (System.IO.File.Exists(file))
+                {
+                    IFileDetails d = GenerateMD5Checksum(file);
+                    collection.Add(d);
+                }
+
+            return collection;
+        }
+
+        /// <summary>
+        /// Generates the MD5 checksum for the file at the passed path
+        /// </summary>
+        /// <param name="file">A path to a file </param>
+        /// <returns>A file detail object, giving the the path and hash</returns>
+        private IFileDetails GenerateMD5Checksum(string file)
+        {
+            string md5 = mD5Calculator_.CalculateHash(file);
+            IFileDetails fileDetails = new FileDetails()
+            {
+                Hash = md5,
+                Path = file
+            };
+
+            return fileDetails;
         }
     }
 }
