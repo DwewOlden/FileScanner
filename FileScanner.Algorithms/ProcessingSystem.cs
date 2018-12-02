@@ -122,8 +122,25 @@ namespace FileScanner.Algorithms
                 return true;
 
             CalculateListContents(fileList);
+ 
+            PerformCompressionOnNewOrUpdatedFiles();
+            
             
             return false;
+
+        }
+
+        /// <summary>
+        /// Gets the paths to all new or amended paths and passes those to the zip
+        /// manager for compression.
+        /// </summary>
+        private void PerformCompressionOnNewOrUpdatedFiles()
+        {
+            List<string> toBeCompressed = new List<string>();
+
+            toBeCompressed.AddRange(UpdatedFiles.Files);
+            toBeCompressed.AddRange(AddedFiles.Files);
+
 
         }
 
@@ -147,6 +164,11 @@ namespace FileScanner.Algorithms
             List<string> removedFiles = new List<string>();
             IEnumerable<string> existingFiles = scanningLocations_.FileDetails.Files;
 
+            foreach (string file in existingFiles)
+                if (!fileList.Contains(file))
+                    removedFiles.Add(file);
+
+            RemovedFiles = removedFiles;
             
         }
 
