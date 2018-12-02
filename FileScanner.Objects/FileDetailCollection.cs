@@ -9,6 +9,14 @@ namespace FileScanner.Objects
 {
     public class FileDetailCollection : HashSet<IFileDetails>, IFileDetailCollection
     {
+        public FileDetailCollection(IEnumerable<IFileDetails> collection) : base(collection)
+        {
+        }
+
+        public FileDetailCollection()
+        {
+        }
+
         /// <summary>
         /// Indictates if a file has already been scanned.
         /// </summary>
@@ -17,6 +25,18 @@ namespace FileScanner.Objects
         public bool FileHasBeenScanned(string Filename)
         {
             return this.Any(f => f.Path.ToUpper() == Filename.ToUpper());
+        }
+
+        /// <summary>
+        /// Gets the details for the files where the name of the file is in the passed collection
+        /// </summary>
+        /// <param name="existingFiles">A collection of file names</param>
+        /// <returns></returns>
+        public IEnumerable<IFileDetails> GetDetails(IEnumerable<string> existingFiles)
+        {
+            IEnumerable<IFileDetails> existing = this.Where(f => existingFiles.Contains(f.Path));
+            return existing;
+            
         }
 
         /// <summary>
@@ -41,5 +61,6 @@ namespace FileScanner.Objects
                 return this.Select(f => f.Path);
             }
         }
+
     }
 }

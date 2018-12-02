@@ -24,6 +24,12 @@ namespace FileScanner.Interfaces.Objects
         /// Gets the paths of all files in the collection
         /// </summary>
         IEnumerable<string> Files { get; }
-      
+
+        /// <summary>
+        /// Gets members of the collection where the name is in the passed collection
+        /// </summary>
+        /// <param name="existingFiles">A collection of filenames</param>
+        /// <returns>A collection of file details where the names match the passed collection </returns>
+        IEnumerable<IFileDetails> GetDetails(IEnumerable<string> existingFiles);
     }
 }

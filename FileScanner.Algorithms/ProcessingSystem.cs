@@ -156,7 +156,37 @@ namespace FileScanner.Algorithms
         /// <param name="fileList">A list of all files being scanned</param>
         private void GenerateListOfAmendedFiles(IEnumerable<string> fileList)
         {
-            throw new NotImplementedException();
+            List<string> existingFiles = new List<string>();
+           
+            foreach (string currentFile in fileList)
+                if (scanningLocations_.FileDetails.Files.Contains(currentFile))
+                    existingFiles.Add(currentFile);
+
+            IEnumerable<IFileDetails> existingDetails = scanningLocations_.FileDetails.GetDetails(existingFiles);
+            
+            UpdatedFiles = CheckForUpdatesToExistingFiles(existingDetails);
+        }
+
+        /// <summary>
+        /// Determines which members of the passed collection have been amended since last scan
+        /// </summary>
+        /// <param name="existingDetails">A collection of file details, all of which have previusly been scanned</param>
+        /// <returns>A collection of files that have been changed, together the new hash values</returns>
+        private IFileDetailCollection CheckForUpdatesToExistingFiles(IEnumerable<IFileDetails> existingDetails)
+        {
+            List<IFileDetails> amendedFiles = new List<IFileDetails>();
+
+            foreach (IFileDetails existingDetail in existingDetails)
+            {
+                string hash = mD5Calculator_.CalculateHash(existingDetail.Path);
+                if (hash != existingDetail.Hash)
+                {
+                    IFileDetails updated = GenerateMD5Checksum(existingDetail.Path);
+                    amendedFiles.Add(updated);
+                }
+            }
+
+            return new FileDetailCollection(amendedFiles);
         }
 
         /// <summary>
