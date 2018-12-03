@@ -66,11 +66,13 @@ namespace FileScanner.Console
         {
             string directories = Properties.Settings.Default.DirectoryPath;
             string files = Properties.Settings.Default.FileDetails;
+            string zipLocation = Properties.Settings.Default.ZipLocation;
 
             _PathProperties = new PathProperties()
             {
                 ListOfDirectoriesToBeScanned = directories,
-                PathToHashCollection = files
+                PathToHashCollection = files,
+                ZipFileLocation = zipLocation
             };
 
             _processingSystem.PathProperties = _PathProperties;

@@ -22,11 +22,15 @@ namespace FileScanner.Algorithms
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public ProcessingSystem(IScanningLocations scanningLocations,IDirectoryScanner directoryScanner,IMD5Calculator mD5Calculator)
+        public ProcessingSystem(IScanningLocations scanningLocations,
+            IDirectoryScanner directoryScanner,
+            IMD5Calculator mD5Calculator,
+            IZipManager zipManager)
         {
             scanningLocations_ = scanningLocations;
             directoryScanner_ = directoryScanner;
             mD5Calculator_ = mD5Calculator;
+            zipManager_ = zipManager;
         }
 
         #endregion
@@ -37,7 +41,7 @@ namespace FileScanner.Algorithms
         /// Loads the data files and collections
         /// </summary>
         private readonly IScanningLocations scanningLocations_;
-        
+
         #endregion
 
         #region Properties
@@ -76,7 +80,12 @@ namespace FileScanner.Algorithms
         /// </summary>
         private readonly IMD5Calculator mD5Calculator_;
 
-       
+        /// <summary>
+        /// An instance of the zip manager
+        /// </summary>
+        private readonly IZipManager zipManager_;
+
+
 
         #endregion
 
@@ -90,7 +99,7 @@ namespace FileScanner.Algorithms
                 throw new ArgumentOutOfRangeException("PathProperties", "the path properties object is currently null");
 
             InitalizeCollections();
-            
+
             return true;
         }
 
@@ -105,7 +114,7 @@ namespace FileScanner.Algorithms
 
             if (scanningLocations_.Directories.Count() == 0)
                 throw new ArgumentOutOfRangeException("Scanning Directories", "the scanning direcories cannot be null");
-               
+
             return true;
 
         }
@@ -122,10 +131,10 @@ namespace FileScanner.Algorithms
                 return true;
 
             CalculateListContents(fileList);
- 
+
             PerformCompressionOnNewOrUpdatedFiles();
-            
-            
+
+
             return false;
 
         }
@@ -134,14 +143,29 @@ namespace FileScanner.Algorithms
         /// Gets the paths to all new or amended paths and passes those to the zip
         /// manager for compression.
         /// </summary>
-        private void PerformCompressionOnNewOrUpdatedFiles()
+        private bool PerformCompressionOnNewOrUpdatedFiles()
         {
             List<string> toBeCompressed = new List<string>();
 
             toBeCompressed.AddRange(UpdatedFiles.Files);
             toBeCompressed.AddRange(AddedFiles.Files);
 
+            try
+            {
+                if (System.IO.Directory.Exists(PathProperties.ZipFileLocation))
+                {
+                    if (toBeCompressed.Count() > 0)
+                    {
+                        zipManager_.DestinationFolder = PathProperties.ZipFileLocation;
+                        zipManager_.PerformZip(toBeCompressed);
+                    }
+                }
+            }catch (Exception)
+            {
+                return false;
+            }
 
+            return true;
         }
 
         /// <summary>
@@ -152,7 +176,7 @@ namespace FileScanner.Algorithms
             GenerateListOfNewFiles(fileList);
             GenerateListOfAmendedFiles(fileList);
             GeneratedListOfDeletedFiles(fileList);
-            
+
         }
 
         /// <summary>
@@ -169,7 +193,7 @@ namespace FileScanner.Algorithms
                     removedFiles.Add(file);
 
             RemovedFiles = removedFiles;
-            
+
         }
 
         /// <summary>
@@ -179,13 +203,13 @@ namespace FileScanner.Algorithms
         private void GenerateListOfAmendedFiles(IEnumerable<string> fileList)
         {
             List<string> existingFiles = new List<string>();
-           
+
             foreach (string currentFile in fileList)
                 if (scanningLocations_.FileDetails.Files.Contains(currentFile))
                     existingFiles.Add(currentFile);
 
             IEnumerable<IFileDetails> existingDetails = scanningLocations_.FileDetails.GetDetails(existingFiles);
-            
+
             UpdatedFiles = CheckForUpdatesToExistingFiles(existingDetails);
         }
 
@@ -225,7 +249,7 @@ namespace FileScanner.Algorithms
                     newFiles.Add(currentFile);
 
             AddedFiles = GenerateMD5Checksums(newFiles);
-            
+
         }
 
         /// <summary>

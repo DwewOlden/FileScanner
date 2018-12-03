@@ -15,5 +15,7 @@ namespace FileScanner.Objects
         public string ListOfDirectoriesToBeScanned { get; set; }
 
         public string PathToHashCollection { get; set; }
+
+        public string ZipFileLocation { get; set; }
     }
 }

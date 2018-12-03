@@ -40,5 +40,14 @@ namespace FileScanner.Console.Properties {
                 return ((string)(this["FileDetails"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\temp\\Backups")]
+        public string ZipLocation {
+            get {
+                return ((string)(this["ZipLocation"]));
+            }
+        }
     }
 }

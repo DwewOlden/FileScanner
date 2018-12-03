@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO.Compression;
 
 namespace FileScanner.Algorithms
 {
@@ -36,11 +37,21 @@ namespace FileScanner.Algorithms
 
             string destinationPath = GetDestinationPath();
 
+            using (ZipArchive compressedFile = ZipFile.Open(destinationPath, ZipArchiveMode.Create))
+            {
+                foreach (string FileToBeCompressed in FilesToBeCompressed)
+                {
+                    if (System.IO.File.Exists(FileToBeCompressed))
+                    {
+                        string entryName = FileToBeCompressed.Replace(@"C:\", string.Empty);
+                        entryName = entryName.Replace(@"\", "_");
+                        compressedFile.CreateEntryFromFile(FileToBeCompressed, entryName);
+                    }
+                }
+            }
 
-
-
-            return true;
-
+            return false;
+            
         }
 
         /// <summary>
@@ -52,11 +63,11 @@ namespace FileScanner.Algorithms
             if (string.IsNullOrEmpty(DestinationFolder))
                 throw new ArgumentOutOfRangeException("destinationFolder", "the destination folder has not been specified");
 
-            if (System.IO.Directory.Exists(DestinationFolder))
+            if (!System.IO.Directory.Exists(DestinationFolder))
                 throw new ArgumentOutOfRangeException("destinationFolder", "the destination folder is not accessibile (or does not exist)");
 
             string fileName = GenerateFileName();
-            return string.Format(@"{0}\{1}", DestinationFolder, fileName);
+            return string.Format(@"{0}\{1}.zip", DestinationFolder, fileName);
 
         }
 

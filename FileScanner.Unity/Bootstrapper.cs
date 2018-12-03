@@ -62,6 +62,7 @@ namespace FileScanner.UnitySystem
             UnityContainer.RegisterType<IDirectoryScanner, DirectoryScanner>();
             UnityContainer.RegisterType<IProcessingSystem, ProcessingSystem>();
             UnityContainer.RegisterType<IMD5Calculator, MD5Calculator>();
+            UnityContainer.RegisterType<IZipManager, ZipManager>();
         }
 
     }
