@@ -45,6 +45,7 @@
     <Compile Include="Algorithms\IZipManager.cs" />
     <Compile Include="IO\IFileLoader.cs" />
     <Compile Include="Algorithms\IProcessingSystem.cs" />
+    <Compile Include="IO\IFileWriter.cs" />
     <Compile Include="Objects\IFileDetailCollection.cs" />
     <Compile Include="Objects\IFileDetails.cs" />
     <Compile Include="Objects\IPathProperties.cs" />

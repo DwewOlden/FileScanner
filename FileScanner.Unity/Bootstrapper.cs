@@ -41,6 +41,7 @@ namespace FileScanner.UnitySystem
         private static void RegisterIOHelpers()
         {
             UnityContainer.RegisterType<IFileLoader, FileLoader>();
+            UnityContainer.RegisterType<IFileWriter, FileWriter>();
         }
 
         /// <summary>

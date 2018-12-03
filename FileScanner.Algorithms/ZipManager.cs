@@ -36,6 +36,7 @@ namespace FileScanner.Algorithms
                 return false;
 
             string destinationPath = GetDestinationPath();
+            DeleteFileIfNeeded(destinationPath);
 
             using (ZipArchive compressedFile = ZipFile.Open(destinationPath, ZipArchiveMode.Create))
             {
@@ -50,8 +51,19 @@ namespace FileScanner.Algorithms
                 }
             }
 
-            return false;
+            return true;
             
+        }
+
+        /// <summary>
+        /// Removes any instance of file, as it will crash if we try and write 
+        /// another record with the same name
+        /// </summary>
+        /// <param name="destinationPath">The path to the file</param>
+        private void DeleteFileIfNeeded(string destinationPath)
+        {
+            if (System.IO.File.Exists(destinationPath))
+                System.IO.File.Delete(destinationPath);
         }
 
         /// <summary>

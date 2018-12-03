@@ -25,12 +25,14 @@ namespace FileScanner.Algorithms
         public ProcessingSystem(IScanningLocations scanningLocations,
             IDirectoryScanner directoryScanner,
             IMD5Calculator mD5Calculator,
+            IFileWriter fileWriter,
             IZipManager zipManager)
         {
             scanningLocations_ = scanningLocations;
             directoryScanner_ = directoryScanner;
             mD5Calculator_ = mD5Calculator;
             zipManager_ = zipManager;
+            fileWriter_ = fileWriter;
         }
 
         #endregion
@@ -85,6 +87,11 @@ namespace FileScanner.Algorithms
         /// </summary>
         private readonly IZipManager zipManager_;
 
+        /// <summary>
+        /// An instance of the file writer.
+        /// </summary>
+        private readonly IFileWriter fileWriter_;
+
 
 
         #endregion
@@ -134,11 +141,38 @@ namespace FileScanner.Algorithms
 
             PerformCompressionOnNewOrUpdatedFiles();
 
-
-            return false;
+            if (!SaveRecordList())
+                return false;
+            
+            return true;
 
         }
 
+        /// <summary>
+        /// Saves the record lists.
+        /// </summary>
+        /// <returns>True if the operation was successfull, false if it was not</returns>
+        private bool SaveRecordList()
+        {
+            FileDetailCollection newCollection = new FileDetailCollection();
+
+            foreach (IFileDetails file in AddedFiles.GetDetails(AddedFiles.Files))
+                newCollection.Add(file);
+
+            foreach (IFileDetails file in UpdatedFiles.GetDetails(UpdatedFiles.Files))
+                newCollection.Add(file);
+
+            foreach (IFileDetails file in scanningLocations_.FileDetails.GetDetails(scanningLocations_.FileDetails.Files))
+                if (!newCollection.Files.Contains(file.Path))
+                    if (!RemovedFiles.Contains(file.Path))
+                        newCollection.Add(file);
+
+            if (newCollection.Count == 0)
+                return true;
+
+            return fileWriter_.WriteFile(PathProperties, newCollection);
+        }
+        
         /// <summary>
         /// Gets the paths to all new or amended paths and passes those to the zip
         /// manager for compression.

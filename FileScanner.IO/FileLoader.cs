@@ -37,6 +37,10 @@ namespace FileScanner.IO
                 line = reader.ReadLine();
             }
 
+            reader.Close();
+            reader.Dispose();
+            reader = null;
+
             return data; 
         }
 
@@ -66,6 +70,10 @@ namespace FileScanner.IO
                 if (fileDetails != null)
                     fileDetailCollection.Add(fileDetails);
             }
+
+            reader.Close();
+            reader.Dispose();
+            reader = null;
 
             return fileDetailCollection;
 
